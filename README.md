@@ -8,7 +8,6 @@ It's a static site: plain HTML, CSS and JavaScript, so there's no build step and
 | File | Purpose |
 |---|---|
 | `index.html` | The whole site (Home, Projects, Experience, Education, Writing, Contact) |
-| `portrait.jpg` | Profile photo |
 | `Chinmay_Paranjape_Resume.pdf` | Résumé served by the "Download résumé" button |
 | `.nojekyll` | Tells GitHub Pages to serve files as-is |
 
@@ -32,7 +31,7 @@ python3 -m http.server 8000
 ## Updating content
 All content lives in the **CONTENT** block at the top of the `<script>` in `index.html`:
 
-- `PROFILE`: name, title, email, LinkedIn, Medium, GitHub (an empty `github` hides the link), photo and résumé file names
+- `PROFILE`: name, title, email, LinkedIn, Medium, GitHub (an empty `github` hides the link), optional photo, résumé file name
 - `IMPACT`: headline numbers on the homepage
 - `EXPERTISE`, `SKILLS`
 - `EXPERIENCE`: one object per role
@@ -41,8 +40,11 @@ All content lives in the **CONTENT** block at the top of the `<script>` in `inde
 - `PERSONAL_PROJECTS`: independent projects (`title`, `intro`, `tools`, `github`, `demo`)
 - `ARTICLES`: Medium articles (`title`, `url`, `date` as `YYYY-MM-DD`, `excerpt`, `category`, `readingTime`, `image`)
 
-### Replace the photo or résumé
-Overwrite `portrait.jpg` or `Chinmay_Paranjape_Resume.pdf` with a file of the same name and commit it.
+### Replace the résumé
+Overwrite `Chinmay_Paranjape_Resume.pdf` with a file of the same name and commit it.
+
+### Add a photo later (optional)
+Upload an image (e.g. `portrait.jpg`, portrait-shaped) and set `photo: "portrait.jpg"` in `PROFILE`. Leave `photo: ""` for no photo.
 
 ## Note
 The downloadable résumé currently includes a phone number. Replace the PDF if you don't want that public.

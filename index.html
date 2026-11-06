@@ -73,7 +73,7 @@ header{position:sticky;top:0;z-index:20;background:var(--nav);backdrop-filter:bl
 .hero svg.contour{position:absolute;inset:0;width:100%;height:100%;opacity:var(--contour);pointer-events:none}
 .hero-in{position:relative;display:flex;flex-wrap:wrap;align-items:center;gap:64px;padding:clamp(64px,8vw,96px) 0 clamp(64px,8vw,88px)}
 .hero-text{flex:999 1 520px;min-width:0;display:flex;flex-direction:column;gap:28px}
-.hero h1{font-size:clamp(40px,5.4vw,76px);line-height:1.04;letter-spacing:-.025em;max-width:14ch}
+.hero h1{font-size:clamp(40px,5.4vw,76px);line-height:1.04;letter-spacing:-.025em;max-width:16ch}
 .hero h1 em{color:var(--accent)}
 .lede{font-size:18px;line-height:1.65;color:var(--muted);max-width:58ch;margin:0}
 .socials{display:flex;flex-wrap:wrap;gap:24px;font-size:14px;color:var(--muted)}
@@ -236,7 +236,7 @@ const PROFILE = {
   medium: "https://medium.com/@Chinmay_Paranjape",
   github: "",            // add your GitHub URL to show it everywhere
   resume: "Chinmay_Paranjape_Resume.pdf",
-  photo: "portrait.jpg",
+  photo: "",             // e.g. "portrait.jpg" to show a photo; leave empty for none
   intro: "I'm Chinmay Paranjape, a mathematician turned data scientist with ~3.5 years across retail, global shipping and mapping. I've built mixed-integer optimizers for vessel deployment at Maersk, churn and experimentation programmes at Tesco, and today I design geospatial quality systems for HERE's maps."
 };
 
@@ -507,10 +507,10 @@ function Home() {
         <div class="socials">${socials()}</div>
         <p class="status" data-resume-status aria-live="polite"></p>
       </div>
-      <figure class="portrait">
+      ${PROFILE.photo ? `<figure class="portrait">
         <img src="${esc(PROFILE.photo)}" alt="Portrait of ${esc(PROFILE.name)}" width="896" height="1075">
         <figcaption><span>19.0760° N, 72.8777° E</span><span>Mumbai, IN</span></figcaption>
-      </figure>
+      </figure>` : ""}
     </div>
   </section>
 
